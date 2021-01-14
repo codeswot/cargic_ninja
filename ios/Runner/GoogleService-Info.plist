@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>420590701446-8nik5as3e15eihbf5t1lk4jipbanlmdl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.420590701446-8nik5as3e15eihbf5t1lk4jipbanlmdl</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>420590701446-66f2r96aab1oaiv9bi9bkrkpstfo8c8f.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCW54Ie6o_v9IYOHAjVSsKkPqQ_QZcTC4g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>420590701446</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cargicNinja</string>
+	<key>PROJECT_ID</key>
+	<string>cargicapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cargicapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:420590701446:ios:f6bfc2bc4650e8fbdd3a07</string>
+	<key>DATABASE_URL</key>
+	<string>https://cargicapp.firebaseio.com</string>
+</dict>
+</plist>

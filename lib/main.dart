@@ -13,14 +13,14 @@ void main() async {
   final FirebaseApp app = await Firebase.initializeApp(
     options: Platform.isIOS || Platform.isMacOS
         ? FirebaseOptions(
-            appId: '1:420590701446:ios:2511b31141e5a860dd3a07',
+            appId: '1:420590701446:ios:f6bfc2bc4650e8fbdd3a07',
             apiKey: 'AIzaSyCW54Ie6o_v9IYOHAjVSsKkPqQ_QZcTC4g',
             projectId: 'cargicapp',
             messagingSenderId: '420590701446',
             databaseURL: 'https://cargicapp.firebaseio.com',
           )
         : FirebaseOptions(
-            appId: '1:420590701446:android:bc04a7c1609075bddd3a07',
+            appId: '1:420590701446:android:99073c631aaa8eb7dd3a07',
             apiKey: 'AIzaSyDfHWBVIpzsSYpWWgeYRih4rKBppNk3LgE',
             messagingSenderId: '420590701446', //'297855924061',
             projectId: 'cargicapp',
