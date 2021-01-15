@@ -1,5 +1,6 @@
 import 'package:cargic_ninja/helpers/auth_helper.dart';
 import 'package:cargic_ninja/screens/auth_screen/register_screen.dart';
+import 'package:cargic_ninja/screens/home_screen.dart';
 import 'package:cargic_ninja/utils/colors.dart';
 import 'package:cargic_ninja/widgets/brand_logo.dart';
 import 'package:cargic_ninja/widgets/candy_button.dart';
@@ -142,7 +143,10 @@ class _LoginWithEmailScreenState extends State<LoginWithEmailScreen> {
                         buttonColor: CargicColors.hopeBlue,
                         titleColor: CargicColors.plainWhite,
                         title: 'Login',
-                        onPressed: loginUser,
+                        onPressed: () {
+                          // loginUser
+                          Navigator.of(context).pushNamed(NinjaHome.id);
+                        },
                       ),
                     ],
                   ),

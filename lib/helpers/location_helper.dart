@@ -31,8 +31,8 @@ class LocationHelper {
       userAdress.lat = position.latitude;
       userAdress.lng = position.longitude;
       userAdress.placeName = placeAddress;
-      // Provider.of<AppData>(context, listen: false)
-      //     .updateUserAddress(userAdress);
+      Provider.of<AppData>(context, listen: false)
+          .updateUserAddress(userAdress);
     }
     return placeAddress;
   }

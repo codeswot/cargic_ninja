@@ -1,13 +1,33 @@
+import 'package:cargic_ninja/helpers/location_helper.dart';
 import 'package:cargic_ninja/screens/auth_screen/login_method_screen.dart';
 import 'package:cargic_ninja/utils/colors.dart';
 import 'package:cargic_ninja/widgets/candy_button.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   static const String id = 'SplashScreen';
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  Geolocator _geolocator = Geolocator();
+  Position currentPosition;
+  LocationHelper _locationHelper = LocationHelper();
+
+  getUserPosition() async {
+    Position position = await _geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.bestForNavigation);
+    currentPosition = position;
+    // confirm location
+    await _locationHelper.findCoordAddress(currentPosition, context);
+  }
+
   @override
   Widget build(BuildContext context) {
+    getUserPosition();
     return Scaffold(
       body: SafeArea(
         child: Column(

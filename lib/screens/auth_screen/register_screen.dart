@@ -1,4 +1,6 @@
 import 'package:cargic_ninja/helpers/auth_helper.dart';
+import 'package:cargic_ninja/models/back_end/address_model.dart';
+import 'package:cargic_ninja/providers/app_data.dart';
 import 'package:cargic_ninja/screens/auth_screen/login_with_email.dart';
 import 'package:cargic_ninja/utils/colors.dart';
 import 'package:cargic_ninja/widgets/brand_logo.dart';
@@ -7,6 +9,7 @@ import 'package:cargic_ninja/widgets/progress_dialog.dart';
 import 'package:cargic_ninja/widgets/sweet_text_field.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String id = 'RegisterScreen';
@@ -90,7 +93,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    String place = Provider.of<AppData>(context).userAdress.placeName;
+    // String stateFix = place.split(',')[0];
+    print(place);
+
     return Scaffold(
       key: scaffoldKey,
       body: Container(

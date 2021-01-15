@@ -12,17 +12,17 @@ class AuthHelper {
     FirebaseAuth.instance.authStateChanges().listen((User user) async {
       if (user != null) {
         currentFirebaseUser = FirebaseAuth.instance.currentUser;
-        String userID = currentFirebaseUser.uid;
+        String ninjaID = currentFirebaseUser.uid;
         DatabaseReference databaseReference =
-            FirebaseDatabase.instance.reference().child('users/$userID');
+            FirebaseDatabase.instance.reference().child('ninjas/$ninjaID');
         await databaseReference.once().then((DataSnapshot snapshot) {
           if (snapshot.value != null) {
-            // Provider.of<AppData>(context, listen: false).getUserInfo(
-            //   iD: userID,
-            //   name: snapshot.value['fullname'],
-            //   email: snapshot.value['email'],
-            //   phone: snapshot.value['phone'],
-            // );
+            Provider.of<AppData>(context, listen: false).getUserInfo(
+              iD: ninjaID,
+              name: snapshot.value['fullname'],
+              email: snapshot.value['email'],
+              phone: snapshot.value['phone'],
+            );
           }
         });
       } else {
@@ -47,31 +47,37 @@ class AuthHelper {
           .createUserWithEmailAndPassword(email: email, password: password);
       print(userCredential);
       if (userCredential != null) {
-        DatabaseReference newUserRef = FirebaseDatabase.instance
+        DatabaseReference newNinjaRef = FirebaseDatabase.instance
             .reference()
-            .child('users/${userCredential.user.uid}');
+            .child('ninjas/${userCredential.user.uid}');
         //set data to be saved
-
-        Map<String, dynamic> newUserMap = {
+        //get current location
+        String place =
+            Provider.of<AppData>(context, listen: false).userAdress.placeName;
+        String stateFix = place.split(',')[2];
+        Map<String, dynamic> newNinjaMap = {
           "fullname": fullName,
           "email": email,
           "phone": phone,
+          "rating": 0.1,
+          "service": "Car wash",
+          // "state": place, //later change to location from geoL do smthn later
         };
         //save data
-        newUserRef.set(newUserMap);
-        print('Saved user $newUserMap');
+        newNinjaRef.set(newNinjaMap);
+        print('Saved Ninja $newNinjaMap');
         currentFirebaseUser = FirebaseAuth.instance.currentUser;
-        String userID = currentFirebaseUser.uid;
+        String ninjaID = currentFirebaseUser.uid;
         DatabaseReference databaseReference =
-            FirebaseDatabase.instance.reference().child('users/$userID');
+            FirebaseDatabase.instance.reference().child('ninjas/$ninjaID');
         await databaseReference.once().then((DataSnapshot snapshot) {
           if (snapshot.value != null) {
-            // Provider.of<AppData>(context, listen: false).getUserInfo(
-            //   iD: userID,
-            //   name: snapshot.value['fullname'],
-            //   email: snapshot.value['email'],
-            //   phone: snapshot.value['phone'],
-            // );
+            Provider.of<AppData>(context, listen: false).getUserInfo(
+              iD: ninjaID,
+              name: snapshot.value['fullname'],
+              email: snapshot.value['email'],
+              phone: snapshot.value['phone'],
+            );
           }
         });
       } else {
@@ -94,17 +100,17 @@ class AuthHelper {
       getCurrentUser(context);
       if (userCredential != null) {
         currentFirebaseUser = FirebaseAuth.instance.currentUser;
-        String userID = currentFirebaseUser.uid;
+        String ninjaID = currentFirebaseUser.uid;
         DatabaseReference databaseReference =
-            FirebaseDatabase.instance.reference().child('users/$userID');
+            FirebaseDatabase.instance.reference().child('users/$ninjaID');
         await databaseReference.once().then((DataSnapshot snapshot) {
           if (snapshot.value != null) {
-            // Provider.of<AppData>(context, listen: false).getUserInfo(
-            //   iD: userID,
-            //   name: snapshot.value["fullname"],
-            //   email: snapshot.value["email"],
-            //   phone: snapshot.value["phone"],
-            // );
+            Provider.of<AppData>(context, listen: false).getUserInfo(
+              iD: ninjaID,
+              name: snapshot.value["fullname"],
+              email: snapshot.value["email"],
+              phone: snapshot.value["phone"],
+            );
           }
         });
 
