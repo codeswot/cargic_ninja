@@ -1,5 +1,4 @@
 import 'package:cargic_ninja/helpers/auth_helper.dart';
-import 'package:cargic_ninja/models/back_end/address_model.dart';
 import 'package:cargic_ninja/providers/app_data.dart';
 import 'package:cargic_ninja/screens/auth_screen/login_with_email.dart';
 import 'package:cargic_ninja/utils/colors.dart';

@@ -24,35 +24,40 @@ class LocationCard extends StatelessWidget {
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              child: SvgPicture.asset(
-                'images/pin_location_icon.svg',
-                color: CargicColors.plainWhite,
-                width: 15.5,
-                height: 30.5,
-              ),
-            ),
-            SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
               children: [
-                Text(
-                  'Work Location',
-                  style: TextStyle(color: CargicColors.plainWhite),
-                ),
                 Container(
-                  width: 130,
-                  child: Text(
-                    (location != null) ? location : '- -',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: CargicColors.plainWhite),
+                  child: SvgPicture.asset(
+                    'images/pin_location_icon.svg',
+                    color: CargicColors.plainWhite,
+                    width: 15.5,
+                    height: 30.5,
                   ),
                 ),
+                SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Work Location',
+                      style: TextStyle(color: CargicColors.plainWhite),
+                    ),
+                    Container(
+                      width: 200,
+                      child: Text(
+                        (location != null) ? location : '- -',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: CargicColors.plainWhite),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 10),
               ],
             ),
-            SizedBox(width: 10),
             Icon(
               Icons.keyboard_arrow_down_outlined,
               color: CargicColors.plainWhite,

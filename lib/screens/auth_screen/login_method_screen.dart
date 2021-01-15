@@ -1,15 +1,11 @@
-import 'dart:async';
-
 import 'package:cargic_ninja/helpers/auth_helper.dart';
 import 'package:cargic_ninja/helpers/location_helper.dart';
-import 'package:cargic_ninja/providers/app_data.dart';
 import 'package:cargic_ninja/screens/auth_screen/login_with_email.dart';
 import 'package:cargic_ninja/utils/colors.dart';
 import 'package:cargic_ninja/widgets/brand_logo.dart';
 import 'package:cargic_ninja/widgets/candy_button.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:provider/provider.dart';
 
 class LoginMethodScreen extends StatefulWidget {
   static const String id = 'LoginMethodScreen';

@@ -1,9 +1,12 @@
+import 'package:cargic_ninja/providers/app_data.dart';
+import 'package:cargic_ninja/screens/change_location_screen.dart';
 import 'package:cargic_ninja/widgets/brand_name.dart';
 import 'package:cargic_ninja/widgets/job_card.dart';
 import 'package:cargic_ninja/widgets/location_card.dart';
 import 'package:cargic_ninja/widgets/ninja_card.dart';
 import 'package:cargic_ninja/widgets/online_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NinjaHome extends StatefulWidget {
   static const String id = 'NinjaHome';
@@ -33,7 +36,12 @@ class _NinjaHomeState extends State<NinjaHome> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              LocationCard(),
+              LocationCard(
+                location: Provider.of<AppData>(context).userAdress.placeName,
+                onTap: () {
+                  Navigator.of(context).pushNamed(ChangeLocationScreen.id);
+                },
+              ),
               NinjaCard(
                 ninjaImage: '',
                 ninjaName: 'Yusuf Damu',

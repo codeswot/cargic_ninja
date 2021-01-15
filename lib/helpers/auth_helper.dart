@@ -52,9 +52,9 @@ class AuthHelper {
             .child('ninjas/${userCredential.user.uid}');
         //set data to be saved
         //get current location
-        String place =
-            Provider.of<AppData>(context, listen: false).userAdress.placeName;
-        String stateFix = place.split(',')[2];
+        // String place =
+        //     Provider.of<AppData>(context, listen: false).userAdress.placeName;
+        // // String stateFix = place.split(',')[2];
         Map<String, dynamic> newNinjaMap = {
           "fullname": fullName,
           "email": email,
