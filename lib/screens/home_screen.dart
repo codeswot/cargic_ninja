@@ -1,5 +1,6 @@
 import 'package:cargic_ninja/providers/app_data.dart';
 import 'package:cargic_ninja/screens/change_location_screen.dart';
+import 'package:cargic_ninja/screens/jobs_screen/jobs_screen.dart';
 import 'package:cargic_ninja/widgets/brand_name.dart';
 import 'package:cargic_ninja/widgets/job_card.dart';
 import 'package:cargic_ninja/widgets/location_card.dart';
@@ -63,12 +64,26 @@ class _NinjaHomeState extends State<NinjaHome> {
                     child: JobsCard(
                       count: 0,
                       title: 'Pending Jobs',
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => JobScreen(index: 0),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Flexible(
                     child: JobsCard(
                       count: 1,
                       title: 'Upcoming Jobs',
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => JobScreen(index: 1),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
