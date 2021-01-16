@@ -1,5 +1,4 @@
 import 'package:cargic_ninja/utils/colors.dart';
-import 'package:cargic_ninja/widgets/smooth_start_rating.dart';
 import 'package:flutter/material.dart';
 
 class PendingJobsCard extends StatelessWidget {

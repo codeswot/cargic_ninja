@@ -2,11 +2,13 @@ import 'package:cargic_ninja/providers/app_data.dart';
 import 'package:cargic_ninja/screens/change_location_screen.dart';
 import 'package:cargic_ninja/screens/jobs_screen/jobs_screen.dart';
 import 'package:cargic_ninja/widgets/brand_name.dart';
+import 'package:cargic_ninja/widgets/job_alerts.dart';
 import 'package:cargic_ninja/widgets/job_card.dart';
 import 'package:cargic_ninja/widgets/location_card.dart';
 import 'package:cargic_ninja/widgets/ninja_card.dart';
 import 'package:cargic_ninja/widgets/online_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class NinjaHome extends StatefulWidget {
@@ -66,10 +68,15 @@ class _NinjaHomeState extends State<NinjaHome> {
                       title: 'Pending Jobs',
                       onTap: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => JobScreen(index: 0),
-                          ),
+                          JobAlerts(location: 'U/Rimi', jobName: 'Car Service'),
                         );
+                        SystemSound.play(SystemSoundType.click);
+
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (context) => JobScreen(index: 0),
+                        //   ),
+                        // );
                       },
                     ),
                   ),
