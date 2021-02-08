@@ -60,7 +60,7 @@ class _LoginWithEmailScreenState extends State<LoginWithEmailScreen> {
           print('Wrong password provided for that user.');
           showSnackbar(message: 'Wrong password provided for that user.');
         } else {
-          // Navigator.of(context).popAndPushNamed(NavigationScreen.id);
+          Navigator.of(context).popAndPushNamed(NinjaHome.id);
         }
       });
     } else {
@@ -145,7 +145,8 @@ class _LoginWithEmailScreenState extends State<LoginWithEmailScreen> {
                         title: 'Login',
                         onPressed: () {
                           // loginUser
-                          Navigator.of(context).pushNamed(NinjaHome.id);
+                          loginUser();
+                          // Navigator.of(context).pushNamed(NinjaHome.id);
                         },
                       ),
                     ],

@@ -28,6 +28,12 @@ dependencies:
   firebase_database: ^4.1.1
   google_maps_flutter: ^1.0.3
   flutter_polyline_points: ^0.2.4
+  firebase_messaging: ^7.0.3
+  flutter_geofire: ^1.0.3
+  toast: ^0.1.5
+
+  
+
   geolocator: ^5.3.1
   http: ^0.12.2
 

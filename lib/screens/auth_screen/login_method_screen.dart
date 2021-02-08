@@ -1,11 +1,9 @@
 import 'package:cargic_ninja/helpers/auth_helper.dart';
-import 'package:cargic_ninja/helpers/location_helper.dart';
 import 'package:cargic_ninja/screens/auth_screen/login_with_email.dart';
 import 'package:cargic_ninja/utils/colors.dart';
 import 'package:cargic_ninja/widgets/brand_logo.dart';
 import 'package:cargic_ninja/widgets/candy_button.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 
 class LoginMethodScreen extends StatefulWidget {
   static const String id = 'LoginMethodScreen';
@@ -15,19 +13,7 @@ class LoginMethodScreen extends StatefulWidget {
 }
 
 class _LoginMethodScreenState extends State<LoginMethodScreen> {
-  LocationHelper _locationHelper = LocationHelper();
   AuthHelper _authHelper = AuthHelper();
-
-  Geolocator _geolocator = Geolocator();
-  Position currentPosition;
-
-  getUserPosition() async {
-    Position position = await _geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.bestForNavigation);
-    currentPosition = position;
-    // confirm location
-    await _locationHelper.findCoordAddress(currentPosition, context);
-  }
 
   @override
   Widget build(BuildContext context) {

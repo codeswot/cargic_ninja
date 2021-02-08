@@ -1,11 +1,16 @@
 import 'dart:io';
 
+import 'package:cargic_ninja/helpers/location_helper.dart';
 import 'package:cargic_ninja/providers/app_data.dart';
 import 'package:cargic_ninja/routes/app_route.dart';
 import 'package:cargic_ninja/screens/auth_screen/splash_screen.dart';
+import 'package:cargic_ninja/screens/home_screen.dart';
 import 'package:cargic_ninja/utils/colors.dart';
+import 'package:cargic_ninja/utils/global_variables.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -28,6 +33,8 @@ void main() async {
           ),
   );
   print('fireBase App Name =>${app.name}');
+  currentFirebaseUser = FirebaseAuth.instance.currentUser;
+
   runApp(MyApp());
 }
 
@@ -58,7 +65,8 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         routes: appRoute,
-        initialRoute: SplashScreen.id,
+        initialRoute:
+            (currentFirebaseUser == null) ? SplashScreen.id : NinjaHome.id,
       ),
     );
   }
